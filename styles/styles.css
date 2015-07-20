@@ -183,6 +183,7 @@ ul.navigation {
 		padding-left: 10px;
 		padding-right: 10px;
 	}
+
 		.og-grid li a {
 			text-decoration: none;
 			/*overflow:auto;*/
@@ -364,7 +365,6 @@ ul.navigation {
 		display: block;
 		margin: auto;
 	}
-
 
 .popup_close_footer {
 	border: 1px solid #d3d3d3;
