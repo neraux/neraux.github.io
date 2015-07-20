@@ -1,1 +1,150 @@
-hello world
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no" />
+
+
+	<title>Nera Mamikonyan - UX/UI Designer</title>
+	<link href="styles/styles.css" rel="stylesheet" type="text/css" />
+	<!--<link href="styles/elastic_grid.css" rel="stylesheet" />-->
+	<script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+
+	<script type="text/javascript" src="scripts/jquery.sticky-kit.min.js"></script>
+	<script type="text/javascript" src="scripts/jquery.stellar.js"></script>
+	<script type="text/javascript" src="scripts/common.js"></script>
+	<script type="text/javascript" src="scripts/typed.js"></script>
+
+	<link href="styles/popup.css" rel="stylesheet" />
+	<script type="text/javascript" src="scripts/jquery.popup.js"></script>
+</head>
+<body>
+	<div class="slide" id="slide1" data-stellar-background-ratio="0.5" data-slide="1">
+		<div class="main-content">
+			<div class="element"></div>
+
+			<!--<h2>Everything you can imagine is real.</h2>-->
+			<h1>Hi there!</h1>
+			<!--<h3><span class="message">Art</span>is the elimination of the unnecessary.</h3>-->
+			<h3>I'm Nera, and I'm a<span class="type-text"></span></h3>
+			<svg class="arrows" data-slide="2">
+				<path class="a1" d="M0 0 L30 32 L60 0"></path>
+				<path class="a2" d="M0 20 L30 52 L60 20"></path>
+				<path class="a3" d="M0 40 L30 72 L60 40"></path>
+			</svg>
+		</div>
+	</div>
+
+
+	<div class="menu">
+		<div class="container clearfix">
+			<div class="fleft">
+				<img class="logo" src="images/logo.svg" />
+			</div>
+			<div class="fright">
+				<ul class="navigation">
+					<!--<li class="home" data-slide="1">&nbsp;</li>-->
+					<li class="work" data-slide="2">&nbsp;</li>
+					<li class="about">&nbsp;</li>
+					<li class="last contact">&nbsp;</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="slide2" class="slide" data-slide="2" data-stellar-background-ratio="0.5" style="background-position: 0px 153px;">
+		<div class="container clearfix">
+			<div class="section">
+				<h1>Work</h1>
+				<h3>“Art is the elimination of the unnecessary”, Pablo Picasso once said. So does the UX Design: remove the unnecessary and enjoy the results.</h3>
+			</div>
+			<div id="content">
+			</div>
+		</div>
+	</div>
+
+	<div id="slide3" class="slide" data-stellar-background-ratio="0.5" data-slide="2">
+		<ul class="og-grid effect-popup" id="og-grid">
+			<li>
+				<a href="broadcity.htm" id="broad">
+					<img src="images/thumbs/p1.jpg" />
+					<p>Mobile App for Broad City TV Show</p>
+				</a>
+
+				<!--<div class="description">
+					<p>Broad City</p>
+					<div class="background">&nbsp;</div>
+
+				</div>-->
+			</li>
+			<li>
+				<a href="moca.htm" id="moca">
+					<img src="images/thumbs/p2.jpg" />
+					<p>Moca Redesign</p>
+				</a>
+			</li>
+
+		</ul>
+	</div>
+	<!--<script type="text/javascript" src="Scripts/grid.js"></script>-->
+	<!--<script type="text/javascript" src="Scripts/jquery.elastislide.js"></script>
+	<script type="text/javascript" src="Scripts/jquery.hoverdir.js"></script>-->
+	<!--<script type="text/javascript" src="Scripts/elastic_grid.js"></script>-->
+	<!--<script src="Scripts/elastic_grid.min.js"></script>-->
+	<script type="text/javascript">
+		function resizeInitialSlide(resizeElement, minusHeightSelector) {
+			var bodyheight = $(window).height();
+			var minusHeight = $(minusHeightSelector).height();
+			$(resizeElement).height(bodyheight - minusHeight);
+		}
+
+		$(document).ready(function () {
+			resizeInitialSlide('#slide1', '.menu');
+			$(window).resize(function () {
+				resizeInitialSlide('#slide1', '.menu');
+			});
+
+			$.stellar({ horizontalScrolling: false });
+			$(".menu").stick_in_parent();
+			$(".type-text").typed({
+				strings: [" UX ^300 designer.", " UX and graphic designer."],
+				typeSpeed: 0.5,
+				//cursorChar: '▋',
+				callback: function (sender) {
+					setTimeout(function () {
+						sender.cursor.fadeOut(1000);
+					}, 2000);
+				}
+				//onStringTyped: function (v)
+				//{
+				//	if (v == 1)
+				//		$(".picasso")     .typed({
+				//			strings: ["Pablo Picasso", ""],
+				//			typeSpeed: 0.5
+				//		});
+				//}
+			});
+
+			$('.navigation li, .arrows').click(function () {
+				var slideID = $(this).data('slide');
+				$('html, body').animate({
+					scrollTop: $('#slide' + slideID).offset().top
+				}, 500);
+			});
+
+			$('.og-grid li a').popup({
+				keepInlineChanges: false,
+				//beforeOpen: function ()
+				//{
+				//	window.location.hash = this.ele.id;
+				//},
+				afterClose: function () {
+					$('html, body').animate({
+						scrollTop: this.ele.offsetTop + document.documentElement.clientHeight * 0.5 - $(this.ele).children().outerHeight(true) * 0.5
+					}, 500);
+				}
+			});
+
+
+		});
+	</script>
+</body>
+</html>
