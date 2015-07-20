@@ -219,7 +219,7 @@
 					}
 				}
 			},
-			imageTypes = ['png', 'jpg', 'gif'],
+			imageTypes = ['png', 'jpg', 'gif', 'svg'],
 			type,
 			cachedContent,
 			$back,
