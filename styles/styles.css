@@ -7,7 +7,6 @@ body {
 	font-family: "Tahoma",sans-serif;
 	font-size: 14px;
 	font-weight: 400;
-	/*line-height: 21px;*/
 }
 
 body, h1, h2, h3, h4 {
@@ -21,11 +20,9 @@ body, h1, h2, h3, h4 {
 }
 
 	.section h1 {
-		/*background: rgba(0, 0, 0, 0) none repeat scroll 0 0;*/
 		color: #868686;
 		font-size: 58px;
 		font-style: normal;
-		/*font-weight: 700;*/
 		line-height: 86px;
 		padding: 0 0 6px;
 		text-align: left;
@@ -33,15 +30,12 @@ body, h1, h2, h3, h4 {
 	}
 
 	.section h3 {
-		/*background: rgba(0, 0, 0, 0) url("../images/h1_viva.png") no-repeat scroll 0 0;*/
 		color: rgb(172, 172, 172);
-		/*font-family: "Raleway",sans-serif;*/
 		font-size: 18px;
 		font-style: italic;
 		line-height: 24px;
 		font-weight: normal;
 		margin: 0;
-		/*padding: 0 0 30px 30px;*/
 	}
 
 .logo {
@@ -64,11 +58,9 @@ body, h1, h2, h3, h4 {
 }
 
 	.main-content h1 {
-		/*font-family: proxima_novasemibold,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
 		font-size: 70px;
 		line-height: 90%;
 		margin-bottom: 20px;
-		/*text-transform: uppercase;*/
 	}
 
 	.main-content h2 {
@@ -188,46 +180,22 @@ ul.navigation {
 		display: inline-block;
 		list-style: none;
 		position: relative;
-		padding-left:10px;
-		padding-right:10px;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
-
-		/*.og-grid li .description {
-			position: absolute;
-			bottom: 50px;
-			text-align: left;
-			width: 70%;
+		.og-grid li a {
+			text-decoration: none;
+			/*overflow:auto;*/
+			display: block;
+			padding-bottom: 5px;
+			margin-bottom: 10px;
 		}
 
-			.og-grid li .description .background {
-				background-color: rgba(0, 0, 0, 0.4);
-				bottom: 0;
-				height: 49px;
-				width: 100%;
-				z-index: 5;
+			.og-grid li a:hover {
+				box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 			}
 
-			.og-grid li .description p {
-				color: #ffffff;
-				padding-left: 10px;
-				position: absolute;
-				z-index: 10;
-			}*/
-
-		.og-grid li a {
-			text-decoration:none;
-			/*overflow:auto;*/
-			display:block;
-			padding-bottom:5px;
-			margin-bottom:10px;
-		}
-
-		.og-grid li a:hover {
-			box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-		}
-
 		.og-grid li p {
-			/*border-bottom: 1px solid #7e7e7e;*/
 			color: #7e7e7e;
 			margin-bottom: 10px;
 			margin-top: 10px;
@@ -236,25 +204,6 @@ ul.navigation {
 .og-grid {
 	text-align: center;
 }
-
-/*hr {
-   display: block;
-   position: relative;
-   padding: 0;
-   margin: 8px auto;
-   height: 0;
-   width: 100%;
-   max-height: 0;
-   font-size: 1px;
-   line-height: 0;
-   clear: both;
-   border: none;
-   border-top: 1px solid #aaaaaa;
-   border-bottom: 1px solid #ffffff;
-}*/
-/*.section-header {
-
-}*/
 
 @keyframes blink {
 	0% {
@@ -302,10 +251,6 @@ ul.navigation {
 .arrows {
 	width: 60px;
 	height: 72px;
-	/*position: absolute;*/
-	/*left: 50%;*/
-	/*margin-left: -30px;*/
-	/*bottom: 20px;*/
 	margin-top: 15px;
 	cursor: pointer;
 }
@@ -416,6 +361,8 @@ ul.navigation {
 		padding-bottom: 25px;
 		width: 95%;
 		max-width: 500px;
+		display: block;
+		margin: auto;
 	}
 
 
@@ -445,21 +392,6 @@ ul.navigation {
 	padding-bottom: 30px;
 }
 
-/*.name-left, .name-right {
-	display: inline-block;
-	height: 2px;
-	padding-bottom: 7px;
-	width: 140px;
-}
-
-.name-left {
-	background: rgba(0, 0, 0, 0) url("../images/left_bord.png") no-repeat scroll 0 0;
-}
-
-.name-right {
-	background: rgba(0, 0, 0, 0) url("../images/right_bord.png") no-repeat scroll 0 0;
-}*/
-
 .section-name {
 	display: inline-block;
 	font-size: 24px;
@@ -469,23 +401,6 @@ ul.navigation {
 	color: #a6a6a6;
 }
 /*End popup*/
-
-@media only screen and (max-width:1023px) {
-}
-
-@media only screen and (max-width:959px) {
-	/*.og-expander h3 {
-		font-size: 32px;
-	}
-
-	.og-expander p {
-		font-size: 13px;
-	}
-
-	.og-expander a {
-		font-size: 12px;
-	}*/
-}
 
 @media only screen and (max-width:767px) {
 	.menu {
