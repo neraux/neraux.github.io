@@ -670,14 +670,14 @@
 			var pW = $pCont.children().outerWidth(true),
 				pH = $pCont.children().outerHeight(true),
 				wW = document.documentElement.clientWidth,
-				wH = (document.documentElement.scrollTop || $('body').scrollTop()) - $pCont.parent().offset().top;
+				wH = (document.documentElement.scrollTop || $('body').scrollTop()) + 65;
 
 			//var aaap = $('body')
 
 			//alert(aaap.scrollTop());
 
 			return {
-				top: wH + 65,
+				top: wH,
 				left: wW * 0.5 - pW * 0.5
 			};
 

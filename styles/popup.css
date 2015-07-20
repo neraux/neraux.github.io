@@ -29,12 +29,12 @@
 */
 
 .popup_close {
-	color: #888;
-	cursor: pointer;
-	position: absolute;
-	padding: 5px;
-	right: 5px;
-	top: 0;
+    cursor: pointer;
+    font-size: 40px;
+    padding: 5px;
+    position: absolute;
+    right: -4px;
+    top: -16px;
 }
 
 .popup_close:hover {

@@ -21,7 +21,7 @@ body, h1, h2, h3, h4 {
 
 	.section h1 {
 		color: #868686;
-		font-size: 58px;
+		font-size: 46px;
 		font-style: normal;
 		line-height: 86px;
 		padding: 0 0 6px;
@@ -214,6 +214,7 @@ ul.navigation {
 
 			.og-grid li a img {
 				width: 250px;
+				height: 250px;
 			}
 
 		.og-grid li p {
@@ -459,7 +460,7 @@ ul.navigation {
 	}
 
 	.section h1 {
-		font-size: 50px;
+		font-size: 40px;
 		padding: 0 0 0px 30px;
 	}
 
@@ -515,7 +516,7 @@ ul.navigation {
 	}
 
 	.og-grid {
-		text-align:center;
+		text-align: center;
 	}
 }
 
