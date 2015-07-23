@@ -16,29 +16,72 @@ body, h1, h2, h3, h4 {
 }
 
 div.icons {
-	text-align:right;
+	text-align: left;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	margin-left: 60px;
 }
 
 	div.icons a {
-		display:inline-block;
-		width:40px;
-		height:40px;
+		display: inline-block;
+		width: 40px;
+		height: 40px;
 		margin: 0px 3px;
 		background-size: 40px 40px;
 		background-repeat: no-repeat;
+		text-decoration: none;
+		text-align: center;
+		font-size: 10px;
 	}
 
 	div.icons .sketch {
-		background-image: url('../images/icons/sketch3.gif');
+		background-image: url('../images/icons/sketch3-bw.gif');
 	}
+
+		div.icons .sketch:hover {
+			background-image: url('../images/icons/sketch3.gif');
+		}
+
+	/*div.icons .sketch::after {
+			content: "Sketch3";
+		}*/
 
 	div.icons .gliffy {
-		background-image: url('../images/icons/gliffy.gif');
+		background-image: url('../images/icons/gliffy-bw.gif');
 	}
 
+		div.icons .gliffy:hover {
+			background-image: url('../images/icons/gliffy.gif');
+		}
+
+	/*div.icons .gliffy::after {
+			content: "Gliffy";
+		}*/
+
+
 	div.icons .invision {
-		background-image: url('../images/icons/invision.gif');
+		background-image: url('../images/icons/invision-bw.gif');
 	}
+
+		div.icons .invision:hover {
+			background-image: url('../images/icons/invision.gif');
+		}
+
+	/*div.icons .invision::after {
+			content: "InVision";
+		}*/
+
+	div.icons .axure {
+		background-image: url('../images/icons/axure-bw.gif');
+	}
+
+		div.icons .axure:hover {
+			background-image: url('../images/icons/axure.gif');
+		}
+
+/*div.icons .axure::after {
+			content: "Axure";
+		}*/
 
 
 .section {
@@ -56,11 +99,11 @@ div.icons {
 	}
 
 	.section h3 {
-		color: rgb(172, 172, 172);
+		/*color: rgb(172, 172, 172);*/
 		font-size: 18px;
-		font-style: italic;
+		/*font-style: italic;*/
 		line-height: 24px;
-		font-weight: normal;
+		font-weight: 300;
 		margin: 0;
 	}
 
@@ -399,19 +442,23 @@ ul.navigation {
 }
 
 	.header-details h2, .header-details h3 {
-		text-transform:uppercase;	
-		font-weight:300;
+		text-transform: uppercase;
+		font-weight: 300;
 	}
 
 	.header-details p {
-		margin-bottom:60px;		
+		margin-bottom: 60px;
 	}
 
 	.header-details p, .section-details p {
-		font-size:16px;
+		font-size: 16px;
 	}
 
-	/*.header-details h3, .header-details p {
+.section-details p {
+	margin: 15px;
+}
+
+/*.header-details h3, .header-details p {
 		padding-left: 10px;
 	}*/
 
@@ -419,9 +466,14 @@ ul.navigation {
 	text-align: center;
 }
 
-/*h2.p-name {
-	text-transform:uppercase;
-}*/
+.bordered img {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+h2.p-name {
+	text-transform: uppercase;
+	text-align: center;
+}
 
 .p-container {
 	text-align: center;
@@ -450,7 +502,7 @@ ul.navigation {
 .double img, .double .facts {
 	width: 45%;
 	max-width: 300px;
-	padding: 2%;
+	margin: 2%;
 	display: inline-block;
 	vertical-align: top;
 }
