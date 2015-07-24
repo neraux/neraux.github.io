@@ -62,7 +62,7 @@
 				backOpacity: 0.7,
 				containerClass: 'popup_cont',
 				closeContent: '<div class="popup_close">&times;</div>',
-				closeFooter: '<div class="popup_close_footer">Close</div>',
+				//closeFooter: '<div class="popup_close_footer">Close</div>',
 				markup: '<div class="popup"><div class="popup_content"/></div>',
 				contentClass: 'popup_content',
 				preloaderContent: '<p class="preloader">Loading</p>',
@@ -477,11 +477,11 @@
 					})
 					.appendTo($pCont);
 
-				$close = $(p.o.closeFooter)
-					.one('click', function () {
-						p.close();
-					})
-					.appendTo($pCont);
+				//$close = $(p.o.closeFooter)
+				//	.one('click', function () {
+				//		p.close();
+				//	})
+				//	.appendTo($pCont);
 
 
 

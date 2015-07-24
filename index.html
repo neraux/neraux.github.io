@@ -5,16 +5,39 @@
 	<title>Nera Mamikonyan - UX/UI Designer</title>
 	<link href="styles/styles.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="scripts/jquery.sticky-kit.min.js"></script>
+	<!--<script type="text/javascript" src="scripts/jquery.sticky-kit.min.js"></script>-->
 	<script type="text/javascript" src="scripts/jquery.stellar.js"></script>
-	<script type="text/javascript" src="scripts/common.js"></script>
+	<!--<script type="text/javascript" src="scripts/common.js"></script>-->
 	<script type="text/javascript" src="scripts/typed.js"></script>
 
 	<link href="styles/popup.css" rel="stylesheet" />
 	<script type="text/javascript" src="scripts/jquery.popup.js"></script>
 </head>
 <body>
+	<div class="menu">
+		<div class="container clearfix">
+			<div class="fleft">
+				<img class="logo" src="images/logo.svg" />
+			</div>
+			<div class="fright">
+				<div id="menu-container">
+					<div class="navigation" id="menu">
+						<a href="javascript:void(0)" data-slide="2">UX</a>
+						<a href="javascript:void(0)" data-slide="4">Logo</a>
+						<a href="javascript:void(0)" data-slide="6">Art</a>
+						<a href="javascript:void(0)" data-slide="8">About</a>
+						<a href="javascript:void(0)" class="last" data-slide="10">Contact</a>
+					</div>
+				</div>
+				<div class="navigation mobile">
+					<a href="#">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="slide" id="slide1" data-stellar-background-ratio="0.5" data-slide="1">
+		&nbsp;
 		<div class="main-content">
 			<div class="element"></div>
 			<h1>Hi there!</h1>
@@ -28,138 +51,132 @@
 	</div>
 
 
-	<div class="menu">
-		<div class="container clearfix">
-			<div class="fleft">
-				<img class="logo" src="images/logo.svg" />
-			</div>
-			<div class="fright">
-				<ul class="navigation">
-					<li class="work" data-slide="2">&nbsp;</li>
-					<li class="about" data-slide="4">&nbsp;</li>
-					<li class="last contact" data-slide="5">&nbsp;</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div id="slide2">
+
+	<div class="slide" id="slide2">
 		<div class="container clearfix">
 			<div class="section">
-				<h1>My Work</h1>
+				<h1>UX Design</h1>
 				<h3>"Art is the elimination of the unnecessary", Pablo Picasso once said. The same is true with UX: remove the unnecessary and enjoy the results.</h3>
 			</div>
-			<div id="content">
-			</div>
+			<ul class="og-grid effect-popup" id="og-grid">
+				<li>
+					<a href="linkedin.html" id="linkedin">
+						<img src="images/thumbs/p3.jpg" />
+						<p>New feature for LinkedIn</p>
+					</a>
+				</li>
+
+				<li>
+					<a href="moca.html" id="moca">
+						<img src="images/thumbs/p2.jpg" />
+						<p>MOCA Redesign</p>
+					</a>
+				</li>
+				<li>
+					<a href="broadcity.html" id="broad">
+						<img src="images/thumbs/p1.jpg" />
+						<p>Mobile App for Broad City TV Show</p>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 
-	<div class="container clearfix">
-		<div class="sub">
-			<h2>UX Design</h2>
-			<hr />
+	<div class="slide" id="slide4">
+		<div class="container clearfix">
+			<!--<div class="sub">
+				<h2>UX Design</h2>
+				<hr />
+			</div>-->
+			<div class="section">
+				<h1>Logotypes</h1>
+				<h3>"Art is the elimination of the unnecessary", Pablo Picasso once said. The same is true with UX: remove the unnecessary and enjoy the results.</h3>
+			</div>
+			<ul class="og-grid effect-popup" id="og-grid">
+				<li>
+					<a href="reptile-park.html">
+						<img src="images/logo/logo-crocodile.svg" />
+						<!--<p>Eden Reptile Park</p>-->
+					</a>
+				</li>
+				<li>
+					<a href="wine-typefaces.html">
+						<img src="images/logo/wine-typefaces.svg" />
+						<!--<p>Wines of California</p>-->
+					</a>
+				</li>
+
+				<li>
+
+					<a href="m-dance.html">
+						<img src="images/logo/m-dance.svg" />
+						<!--<p>M Dance Studio</p>-->
+					</a>
+				</li>
+
+				<li>
+					<a href="mur-marketing.html">
+						<img src="images/logo/mur.svg" />
+						<!--<p>MUR Marketing Group</p>-->
+					</a>
+				</li>
+				<li>
+					<a href="sunshinz-art.html">
+						<img src="images/logo/sunshinz-art.svg" />
+						<!--<p>Sunshinz Art</p>-->
+					</a>
+				</li>
+				<li>
+					<a href="art-manua.html">
+						<img src="images/logo/art-manua.svg" />
+						<!--<p>ArtManua</p>-->
+					</a>
+				</li>
+			</ul>
 		</div>
-		<ul class="og-grid effect-popup" id="og-grid">
-			<li>
-				<a href="linkedin.html" id="linkedin">
-					<img src="images/thumbs/p3.jpg" />
-					<p>New feature for LinkedIn</p>
-				</a>
-			</li>
+	</div>
 
-			<li>
-				<a href="moca.html" id="moca">
-					<img src="images/thumbs/p2.jpg" />
-					<p>MOCA Redesign</p>
-				</a>
-			</li>
-			<li>
-				<a href="broadcity.html" id="broad">
-					<img src="images/thumbs/p1.jpg" />
-					<p>Mobile App for Broad City TV Show</p>
-				</a>
-			</li>
-		</ul>
-		<div class="sub">
-			<h2>Logo Design</h2>
-			<hr />
+	<div class="slide" id="slide6">
+		<div class="container clearfix">
+			<!--<div class="sub">
+				<h2>UX Design</h2>
+				<hr />
+			</div>-->
+			<div class="section">
+				<h1>Illustrations</h1>
+				<h3>"Art is the elimination of the unnecessary", Pablo Picasso once said. The same is true with UX: remove the unnecessary and enjoy the results.</h3>
+			</div>
+			<!--<div class="sub">
+				<h2>Graphic Design</h2>
+				<hr />
+			</div>-->
+			<ul class="og-grid effect-popup" id="og-grid">
+				<li>
+					<a href="mona-lisa.html">
+						<img src="images/thumbs/mona-lisa.jpg" />
+						<p>Mona Lisa</p>
+					</a>
+				</li>
+				<li>
+					<a href="gcc-campus.html">
+						<img src="images/thumbs/gcc-campus.jpg" />
+						<p>Campus at GCC</p>
+					</a>
+				</li>
+
+				<li>
+					<a href="oreo-100.html">
+						<img src="images/thumbs/doodle-oreo.jpg" />
+						<p>Oreo 100 Year Anniversary</p>
+					</a>
+				</li>
+			</ul>
 		</div>
-		<ul class="og-grid effect-popup" id="og-grid">
-			<li>
-				<a href="art-manua.html">
-					<img src="images/logo/art-manua.svg" />
-					<p>ArtManua</p>
-				</a>
-			</li>
-			<li>
-
-				<a href="m-dance.html">
-					<img src="images/logo/m-dance.svg" />
-					<p>M Dance Studio</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="mur-marketing.html">
-					<img src="images/logo/mur.svg" />
-					<p>MUR Marketing Group</p>
-				</a>
-			</li>
-
-
-
-
-			<li>
-				<a href="sunshinz-art.html">
-					<img src="images/logo/sunshinz-art.svg" />
-					<p>Sunshinz Art</p>
-				</a>
-			</li>
-
-
-			<li>
-				<a href="wine-typefaces.html">
-					<img src="images/logo/wine-typefaces.svg" />
-					<p>Wines of California</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="reptile-park.html">
-					<img src="images/logo/logo-crocodile.svg" />
-					<p>Eden Reptile Park</p>
-				</a>
-			</li>
-		</ul>
-		<div class="sub">
-			<h2>Graphic Design</h2>
-			<hr />
-		</div>
-		<ul class="og-grid effect-popup" id="og-grid">
-			<li>
-				<a href="mona-lisa.html">
-					<img src="images/thumbs/mona-lisa.jpg" />
-					<p>Mona Lisa</p>
-				</a>
-			</li>
-			<li>
-				<a href="gcc-campus.html">
-					<img src="images/thumbs/gcc-campus.jpg" />
-					<p>Campus at GCC</p>
-				</a>
-			</li>
-
-			<li>
-				<a href="oreo-100.html">
-					<img src="images/thumbs/doodle-oreo.jpg" />
-					<p>Oreo 100 Year Anniversary</p>
-				</a>
-			</li>
-		</ul>
 	</div>
 	<!--<div id="slide3" >
 
 	</div>-->
-	<div id="slide4">
+	<div class="slide" id="slide8">
 		<div class="container clearfix">
 			<div class="section">
 				<h1>About Me</h1>
@@ -168,10 +185,20 @@
 				<p class="about-me">
 					"I am a user experience designer with a strong background in graphic design. Have experience in website, web application, and mobile app design. Love to solve unique business challenges through innovation and technology. Highly creative and enjoy working with clients in producing unique results."
 				</p>
+			</div>
+		</div>
+	</div>
+	<div class="slide" id="slide10">
+		<div class="container clearfix">
+			<div class="section">
+				<h1>Contact Me</h1>
+			</div>
+			<div id="content">
 
 			</div>
 		</div>
 	</div>
+
 
 	<!--<div id="slide5">
 		<div class="container clearfix">
@@ -184,20 +211,62 @@
 		</div>
 	</div>-->
 	<script type="text/javascript">
-		function resizeInitialSlide(resizeElement, minusHeightSelector) {
-			var bodyheight = $(window).height();
-			var minusHeight = $(minusHeightSelector).height();
-			$(resizeElement).height(bodyheight - minusHeight);
+		function resizeInitialSlide(resizeElement) {
+			var bodyheight = $(window).height() - 65;
+			$(resizeElement).each(function (i) {
+				var $this = $(this);
+
+				if ($this.children().height() <= bodyheight || i == 0) {
+					if (i > 0) {
+						var padding = (bodyheight - $this.children().height() + 65) / 2;
+						$this.css('padding-top', padding);
+						this.style.height = (bodyheight - padding + 65) + 'px';
+					}
+					else
+						this.style.height = bodyheight + 'px';
+				}
+				else
+					this.style.height = 'initial';
+			})
+		}
+
+		function attachMenu(selector, callback) {
+			$(selector).click(function () {
+				var slideID = $(this).data('slide');
+				if (!slide1)
+					return;
+
+				var $slide = $('#slide' + slideID);
+				var scrollPosition = $slide.offset().top
+				if ($(window).height() < $slide.height())
+					scrollPosition -= 65;
+				$('html, body').animate({
+					scrollTop: scrollPosition
+				}, 500);
+
+				if (callback)
+					callback();
+			});
+		}
+
+		var $openPopups = [];
+		function closePopups() {
+			while ($openPopups.length > 0)
+				$openPopups.pop().close();
 		}
 
 		$(document).ready(function () {
-			resizeInitialSlide('#slide1', '.menu');
+			resizeInitialSlide('.slide');
+			var doneResizing;
 			$(window).resize(function () {
-				resizeInitialSlide('#slide1', '.menu');
+				clearTimeout(doneResizing);
+				doneResizing = setTimeout(function () {
+					resizeInitialSlide('.slide');
+				}, 100);
 			});
 
 			$.stellar({ horizontalScrolling: false });
-			$(".menu").stick_in_parent();
+			//$(".menu").stick_in_parent();
 			$(".type-text").typed({
 				strings: [" UX ^300 designer.", " UX and graphic designer."],
 				typeSpeed: 0.5,
@@ -209,21 +278,34 @@
 				}
 			});
 
-			$('.navigation li, .arrows').click(function () {
-				var slideID = $(this).data('slide');
-				$('html, body').animate({
-					scrollTop: $('#slide' + slideID).offset().top
-				}, 500);
+			attachMenu('#menu a, .arrows', function () {
+				closePopups();
 			});
 
 			$('.og-grid li a').popup({
 				keepInlineChanges: false,
-				//afterClose: function () {
-				//	$('html, body').animate({
-				//		scrollTop: this.ele.offsetTop + document.documentElement.clientHeight * 0.5 - $(this.ele).children().outerHeight(true) * 0.5
-				//	}, 500);
-				//}
+				afterOpen: function () {
+					$openPopups.push(this);
+				}
 			});
+			//afterClose: function () {
+			//	$('html, body').animate({
+			//		scrollTop: this.ele.offsetTop + document.documentElement.clientHeight * 0.5 - $(this.ele).children().outerHeight(true) * 0.5
+			//	}, 500);
+			//}
+		});
+
+		$('.mobile').popup(
+		{
+			content: $('#menu-container'),
+			containerClass: 'mobile-menu',
+			backClass: 'mobile-none',
+			afterOpen: function () {
+				$openPopups.push(this);
+				attachMenu('.mobile-menu a', function () {
+					closePopups();
+				});
+			}
 		});
 	</script>
 	<script>
