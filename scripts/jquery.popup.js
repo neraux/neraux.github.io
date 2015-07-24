@@ -486,7 +486,7 @@
 
 
 				// Bind the resize event
-				$(window).resize(p.center);
+				//$(window).resize(p.center);
 
 				// Append the container to the body
 				// and set the opacity
