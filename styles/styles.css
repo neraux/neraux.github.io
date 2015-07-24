@@ -229,7 +229,13 @@ div.mobile {
 		display: block;
 		background-color: #535353;
 		box-shadow: none;
+		padding-left:5px;
 	}
+
+		.mobile-menu .popup_content a:hover {
+			border-left: #498ecf 5px solid;
+			padding-left:0px;
+		}
 
 		.mobile-menu .popup_content a.last {
 			margin-right: 0px;
@@ -253,6 +259,7 @@ div.navigation a {
 	padding: 0 5px;
 	text-align: center;
 	text-transform: uppercase;
+	text-decoration: none;
 }
 
 	div.navigation a:hover {
