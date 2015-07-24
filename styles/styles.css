@@ -220,7 +220,7 @@ div.mobile {
 	top: 65px !important;
 	z-index: 102;
 	width: 100%;
-	display:none;
+	display: none;
 }
 
 	.mobile-menu .popup_content a {
@@ -592,12 +592,17 @@ h2.p-name {
 		background-color: #aaaaaa;
 	}
 
-hr, hr {
+hr {
 	border: 0;
 	height: 1px;
 	background-image: linear-gradient(to right, rgba(128, 128, 128, 0), rgba(128, 128, 128, 0.75), rgba(128, 128, 128, 0));
 	margin-top: -14px;
 }
+
+	hr.slim {
+		margin:0px;
+		padding:0px;
+	}
 
 .popup-section {
 	text-align: center;
@@ -698,7 +703,7 @@ hr, hr {
 	}
 
 	.mobile-menu {
-		display:block;
+		display: block;
 	}
 
 	div.navigation a:hover {
