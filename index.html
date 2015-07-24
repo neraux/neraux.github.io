@@ -17,7 +17,9 @@
 	<div class="menu">
 		<div class="container clearfix">
 			<div class="fleft">
-				<img class="logo" src="images/logo.svg" />
+				<a href="javascript:void(0)" id="homeLink" data-slide="0">
+					<img class="logo" src="images/logo.svg" />
+				</a>
 			</div>
 			<div class="fright">
 				<div id="menu-container">
@@ -228,13 +230,17 @@
 		function attachMenu(selector, callback) {
 			$(selector).click(function () {
 				var slideID = $(this).data('slide');
-				if (!slide1)
+				if (slideID === 'undefined')
 					return;
 
+				var scrollPosition = 0;
 				var $slide = $('#slide' + slideID);
-				var scrollPosition = $slide.offset().top
-				if ($(window).height() < $slide.height())
-					scrollPosition -= 65;
+				debugger;
+				if ($slide.length > 0) {
+					scrollPosition = $slide.offset().top
+					if ($(window).height() < $slide.height())
+						scrollPosition -= 65;
+				}
 				$('html, body').animate({
 					scrollTop: scrollPosition
 				}, 500);
@@ -273,7 +279,7 @@
 				}
 			});
 
-			attachMenu('#menu a, .arrows', function () {
+			attachMenu('#menu a, .arrows, #homeLink', function () {
 				closePopups();
 			});
 

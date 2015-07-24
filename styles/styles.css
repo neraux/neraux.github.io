@@ -239,6 +239,9 @@ div.mobile {
 		padding: 0px;
 	}
 
+.menu a {
+	text-decoration: none;
+}
 
 div.navigation a {
 	color: #d3d3d3;
@@ -250,7 +253,6 @@ div.navigation a {
 	padding: 0 5px;
 	text-align: center;
 	text-transform: uppercase;
-	text-decoration: none;
 }
 
 	div.navigation a:hover {
@@ -600,8 +602,8 @@ hr {
 }
 
 	hr.slim {
-		margin:0px;
-		padding:0px;
+		margin: 0px;
+		padding: 0px;
 	}
 
 .popup-section {
