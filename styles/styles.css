@@ -83,6 +83,27 @@ div.icons {
 			content: "Axure";
 		}*/
 
+.status .success, .status .fail {
+	display: block;
+	width: 250px;
+	height: 250px;
+	margin: auto;
+	
+}
+
+.status h2 {
+	text-align:center;
+	font-weight:300;
+}
+
+.status .success {
+	background-image: url('../images/icons/success.svg');
+}
+
+.status .fail {
+	background-image: url('../images/icons/fail.svg');
+}
+
 
 .section {
 	/*padding-top: 75px;*/
@@ -229,12 +250,12 @@ div.mobile {
 		display: block;
 		background-color: #535353;
 		box-shadow: none;
-		padding-left:5px;
+		padding-left: 5px;
 	}
 
 		.mobile-menu .popup_content a:hover {
 			border-left: #498ecf 5px solid;
-			padding-left:0px;
+			padding-left: 0px;
 		}
 
 		.mobile-menu .popup_content a.last {
@@ -328,7 +349,7 @@ div.navigation a {
 	animation: blink 0.7s infinite;
 }
 
-.og-grid {
+.grid {
 	text-align: center;
 	/*margin-left:10px;
 	margin-right:10px;
@@ -337,7 +358,7 @@ div.navigation a {
 	margin: 0px;
 }
 
-	.og-grid li {
+	.grid li {
 		display: inline-block;
 		list-style: none;
 		position: relative;
@@ -346,32 +367,95 @@ div.navigation a {
 		text-align: center;
 	}
 
-		.og-grid li a {
+		.grid li a {
 			text-decoration: none;
 			/*overflow:auto;*/
 			display: block;
 			padding-bottom: 5px;
 			margin-bottom: 10px;
+			transition: all 0.2s linear 0s;
 		}
 
-			.og-grid li a:hover {
+			.grid li a:hover {
 				box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
 			}
 
-			.og-grid li a img {
+			.grid li a img {
 				width: 250px;
 				height: 250px;
 			}
 
-		.og-grid li p {
+		.grid li p {
 			color: #7e7e7e;
 			margin-bottom: 10px;
 			margin-top: 10px;
 		}
 
-/*.og-grid {
+/*.grid {
 	text-align: center;
 }*/
+
+.contact {
+	max-width: 800px;
+	margin: auto;
+	padding: 0px 15px;
+}
+
+	.contact .field {
+		padding: 5px 0px;
+	}
+
+	.contact input, .contact textarea {
+		color: #313131;
+		font-family: "Open Sans",sans-serif;
+		font-size: 15px;
+		font-weight: 300;
+	}
+
+	.contact input, .contact .submit, .contact textarea {
+		display: block;
+		width: 100%;
+	}
+
+	.contact label {
+		font-size: 16px;
+	}
+
+	.contact .submit {
+		background-color: #498ecf;
+		border: medium none;
+		border-radius: 2px;
+		box-sizing: border-box;
+		color: #fff;
+		cursor: pointer;
+		display: inline-block;
+		height: 40px;
+		line-height: 41px;
+		padding: 0 15px;
+		transition: all 0.2s linear 0s;
+		text-align:center;
+		text-decoration:none;
+		text-transform:uppercase;
+		font-weight:400;
+	}
+		.contact .submit:hover {
+			opacity:0.75;
+		}
+
+.text-input {
+	border: 1px solid #bfbfbf;
+	border-radius: 2px;
+	box-sizing: border-box;
+	display: block;
+	height: 40px;
+	padding: 0 10px;
+	transition: all 0.25s ease 0s;
+}
+
+.contact textarea {
+	padding: 10px;
+}
+
 
 @keyframes blink {
 	0% {
@@ -520,7 +604,8 @@ div.navigation a {
 	}
 
 .section-details p {
-	margin: 15px;
+	margin: auto auto 20px;
+	max-width: 995px;
 }
 
 /*.header-details h3, .header-details p {
@@ -736,7 +821,7 @@ hr {
 			/*max-width: 600px;*/
 		}
 
-	.og-grid li {
+	.grid li {
 		margin: 0px;
 		padding: 0px;
 		min-width: initial;
@@ -746,7 +831,7 @@ hr {
 		width: 100%;
 	}
 
-	.og-grid {
+	.grid {
 		text-align: center;
 	}
 
