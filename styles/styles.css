@@ -826,12 +826,12 @@ hr {
 
 	.section h1 {
 		font-size: 40px;
-		padding: 0 0 0px 30px;
+		padding: 0 0 0 6px;
 	}
 
 	.section h3 {
 		line-height: 18px;
-		padding: 0 0 0px 30px;
+		padding: 0 0 0 30px;
 	}
 
 	.grid li {
@@ -903,8 +903,8 @@ hr {
 	}
 
 	.section h1 {
-		font-size: 23px;
-		margin-bottom:0px;
+		font-size: 26px;
+		margin-bottom:10px;
 		line-height:23px;
 	}
 
