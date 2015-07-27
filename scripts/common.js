@@ -144,6 +144,7 @@ function navigateToSection(hash, animate) {
 		}
 
 		$(document).on('click.inline', parts.join(','), function (e) {
+			e.preventDefault();
 			inline.open(this);
 		});
 
