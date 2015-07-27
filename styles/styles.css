@@ -929,7 +929,7 @@ hr {
 		font-size: 16px;
 	}
 
-	.header-image {
+	.inline-preview .header-image {
 		display: none;
 	}
 }
