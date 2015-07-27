@@ -1,684 +1,204 @@
+function resizeInitialSlide(resizeElement) {
+	var bodyheight = $(window).height() - 65;
+	$(resizeElement).each(function (i) {
+		var $this = $(this);
+		if ($this.children().height() <= bodyheight || i == 0) {
+			if (i > 0) {
+				var padding = (bodyheight - $this.children().height() + 65) / 2;
+				$this.css('padding-top', padding);
+				this.style.height = (bodyheight - padding + 65) + 'px';
+			}
+			else
+				this.style.height = bodyheight + 'px';
+		}
+		else
+			this.style.height = 'initial';
+		//$this.css('padding-top', 'initial');
+	});
+}
+
+function submitMessage() {
+	var hash = (new Date()).getTime();
+	var url = "http://neraux.azurewebsites.net/send?t=0&o=1&hash=" + hash;
+
+	$('.contact .text-input').each(function () {
+		url += '&' + this.getAttribute('data-field') + '=' + encodeURI(this.value);
+	});
+
+	$.getScript(url, function () {
+		var response = toolboxResults();
+		submitMessageCallback(response.success);
+	});
+
+	return false;
+}
+
+function submitMessageCallback(success) {
+	var message = success ? 'Thank you for your message!' : 'Oops! Please try again later.'
+	var cls = success ? 'success' : 'fail';
+
+	var $contact = $('.contact');
+	var $parent = $contact.parent();
+	$parent.height($parent.height());
+
+	var $replaceWith = $('<div style="display:none;" class="status"><div class="' + cls + '"></div><h2>' + message + '</h2></div>');
+	//$replaceWith.height($contact.height());
+	$replaceWith.insertAfter($contact);
+
+	$contact.fadeOut(200, function () {
+		$replaceWith.fadeIn(200);
+	});
+}
+
+function initializeMenu(selector) {
+	$(selector).click(function (e) {
+		if(this.hash)
+			navigateToSection(this.hash, true);
+		else
+			navigateToSection('#/' + $(this).data('section'), true);
+	});
+}
+
+//var $slide = $('div.slide[data-section="' + section + '"]');
+function navigateToSection(hash, animate) {
+	var section = $('div.slide[data-section="' + hash.substring(2) + '"]');
+	//navigateToSection(section);
+	var scrollPosition = 0;
+	if (section.length > 0) {
+		scrollPosition = section.offset().top
+		//if ($(window).height() < section.height())
+		scrollPosition -= 65;
+	}
+
+	if (animate)
+		$('html, body').animate({
+			scrollTop: scrollPosition
+		}, 500);
+	else
+		$('html, body').scrollTop(scrollPosition);
+}
+
 ; (function ($, window) {
 
-	$.fn.inline = function () {
+	$.fn.mobileMenu = function (settings) {
+		settings = settings || {};
 
-		//var selector = this.selector,
-		//	popup = new $.Inline(settings);
+		var menu = new $.MobileMenu(settings);
+		menu.init();
+		this.click(function (e) {
+			e.preventDefault();
+			menu.toggle(this);
+		});
+	};
 
-		$(document).on('click.inline', this.selector, function (e) {
+	$.MobileMenu = function (settings) {
+		var $menu = this;
+		var defaults = {
+			container: $('<div class="mobile-menu"></div>'),
+			_open: false
+		};
 
-			//var content = settings && settings.content
-			//	? settings.content
-			//	: $(this).attr('href');
+		$menu.settings = $.extend(true, {}, defaults, settings);
 
-			//e.preventDefault();
+		$menu.init = function () {
+			var content = $(this.settings.source).clone();
+			$menu.settings.container.append(content);
+			$menu.settings.container.hide();
+			$menu.settings.container.appendTo($('.menu'));
+			if ($menu.settings.clicked) {
+				$menu.settings.container.on('click.mobile', 'a', function () {
+					$menu.close();
+					$menu.settings.clicked(this);
+				});
+			}
+		};
 
-			//popup.open(content, undefined, this);
+		this.toggle = function () {
+			if (this.settings._open)
+				this.close();
+			else
+				this.open();
 
+		};
+
+		this.open = function () {
+			this.settings._open = true;
+			this.settings.container.show();
+		};
+
+		this.close = function () {
+			this.settings._open = false;
+			this.settings.container.hide();
+		}
+	};
+
+	$.fn.inline = function (settings) {
+		settings = settings || {};
+		settings.selector = this.selector;
+		var inline = new $.Inline(settings);
+
+		var selector = '';
+		var parts = this.selector.split(',');
+		for (var i = 0; i < parts.length; i++) {
+			parts[i] += ' ' + settings.children;
+		}
+
+		$(document).on('click.inline', parts.join(','), function (e) {
+			inline.open(this);
+		});
+
+		this.find(settings.children).each(function () {
+			var $this = $(this);
+			var content = $this.attr('href');
+			$(this).data('href', content);
+			this.hash = content;
+			this.pathname = window.location.pathname;
 		});
 
 		return this.each(function () {
-			//$(this)
-			//	.data('popup', popup);
 		});
-
 	};
 
-	$.Inline = function ()
-	{
-		
-	}
-
-	/**
-	 * Main Popup Class
-	 *
-	 * @param {Object} settings
-	 */
-	//$.Popup = function (settings) {
-
-	//	var p = this,
-	//		defaults = {
-
-	//			// Markup
-	//			backClass: 'popup_back',
-	//			backOpacity: 0.7,
-	//			containerClass: 'popup_cont',
-	//			closeContent: '<div class="popup_close">&times;</div>',
-	//			//closeFooter: '<div class="popup_close_footer">Close</div>',
-	//			markup: '<div class="popup"><div class="popup_content"/></div>',
-	//			contentClass: 'popup_content',
-	//			preloaderContent: '<p class="preloader">Loading</p>',
-	//			activeClass: 'popup_active',
-	//			hideFlash: false,
-	//			speed: 200,
-	//			popupPlaceholderClass: 'popup_placeholder',
-	//			keepInlineChanges: true,
-	//			parentSelector: 'body',
-
-	//			// Content
-	//			modal: false,
-	//			content: null,
-	//			type: 'auto',
-	//			width: null,
-	//			height: null,
-
-	//			// Params
-	//			typeParam: 'pt',
-	//			widthParam: 'pw',
-	//			heightParam: 'ph',
-
-	//			// Callbacks
-	//			beforeOpen: function (type) { },
-	//			afterOpen: function () { },
-	//			beforeClose: function () { },
-	//			afterClose: function () { },
-	//			error: function () { },
-	//			show: function ($popup, $back) {
-
-	//				var plugin = this;
-
-	//				// Center the popup
-	//				plugin.center();
-
-	//				// Animate in
-	//				$popup
-	//					.animate({ opacity: 1 }, plugin.o.speed, function () {
-	//						// Call the open callback
-	//						plugin.o.afterOpen.call(plugin);
-	//					});
-
-	//			},
-	//			replaced: function ($popup, $back) {
-
-	//				// Center the popup and call the open callback
-	//				this
-	//					.center()
-	//					.o.afterOpen.call(this);
-
-	//			},
-	//			hide: function ($popup, $back) {
-
-	//				if ($popup !== undefined) {
-
-	//					// Fade the popup out
-	//					$popup.animate({ opacity: 0 }, this.o.speed);
-
-	//				}
-
-	//			},
-	//			types: {
-	//				inline: function (content, callback) {
-
-	//					var $content = $(content);
-
-	//					$content
-	//						.addClass(p.o.popupPlaceholderClass);
-
-	//					// If we don't want to keep any inline changes,
-	//					// get a fresh copy now
-	//					if (!p.o.keepInlineChanges) {
-	//						cachedContent = $content.html();
-	//					}
-
-	//					callback.call(this, $content.children());
-
-	//				},
-	//				image: function (content, callback) {
-
-	//					var plugin = this;
-
-	//					var $image = $('<img />')
-	//						.one('load', function () {
-
-	//							var img = this;
-
-	//							// Timeout for Webkit
-	//							// As the width/height of the image is 0 initially
-	//							setTimeout(function () {
-
-	//								callback.call(plugin, img);
-
-	//							}, 0);
-
-	//						})
-	//						.one('error', function () {
-
-	//							p.o.error.call(p, content, 'image');
-
-	//						})
-	//						.attr('src', content)
-	//						.each(function () {
-
-	//							if (this.complete) {
-
-	//								$(this).trigger('load');
-
-	//							}
-
-	//						});
-
-	//				},
-	//				external: function (content, callback) {
-
-	//					var $frame = $('<iframe />')
-	//						.attr({
-	//							src: content,
-	//							frameborder: 0,
-	//							width: p.width,
-	//							height: p.height
-	//						});
-
-	//					callback.call(this, $frame);
-
-	//				},
-	//				html: function (content, callback) {
-
-	//					callback.call(this, content);
-
-	//				},
-	//				jQuery: function (content, callback) {
-
-	//					callback.call(this, content.html());
-
-	//				},
-	//				'function': function (content, callback) {
-
-	//					callback.call(this, content.call(p));
-
-	//				},
-	//				ajax: function (content, callback) {
-
-	//					$.ajax({
-	//						url: content,
-	//						success: function (data) {
-	//							callback.call(this, data);
-	//						},
-	//						error: function (data) {
-	//							p.o.error.call(p, content, 'ajax');
-	//						}
-	//					});
-
-	//				}
-	//			}
-	//		},
-	//		imageTypes = ['png', 'jpg', 'gif', 'svg'],
-	//		type,
-	//		cachedContent,
-	//		$back,
-	//		$pCont,
-	//		$close,
-	//		$preloader,
-	//		$p;
-
-	//	p.ele = undefined;
-
-	//	p.o = $.extend(true, {}, defaults, settings);
-
-	//	/**
-	//	 * Opens a new popup window
-	//	 *
-	//	 * @param  {string} content
-	//	 * @param  {string} popupType
-	//	 * @param  {Object} ele
-	//	 * @return {void}
-	//	 */
-	//	p.open = function (content, popupType, ele) {
-
-	//		// Get the content
-	//		content = (content === undefined || content === '#')
-	//			? p.o.content
-	//			: content;
-
-	//		// If no content is set
-	//		if (content === null) {
-
-	//			p.o.error.call(p, content, type);
-	//			return false;
-
-	//		}
-
-	//		// Was an element passed in?
-	//		if (ele !== undefined) {
-
-	//			// Remove current active class
-	//			if (p.ele && p.o.activeClass) {
-
-	//				$(p.ele).removeClass(p.o.activeClass);
-
-	//			}
-
-	//			// Record the element
-	//			p.ele = ele;
-
-	//			// Add an active class
-	//			if (p.ele && p.o.activeClass) {
-
-	//				$(p.ele).addClass(p.o.activeClass);
-
-	//			}
-
-	//		}
-
-	//		// If we're not open already
-	//		if ($back === undefined) {
-
-	//			// Create back and fade in
-	//			$back = $('<div class="' + p.o.backClass + '"/>')
-	//				.appendTo($('body'))
-	//				.css('opacity', 0)
-	//				.animate({
-	//					opacity: p.o.backOpacity
-	//				}, p.o.speed);
-
-	//			// If modal isn't specified, bind click event
-	//			if (!p.o.modal) {
-
-	//				$back.one('click.popup', function () {
-	//					p.close();
-	//				});
-
-	//			}
-
-	//			// Should we hide the flash?
-	//			if (p.o.hideFlash) {
-
-	//				$('object, embed').css('visibility', 'hidden');
-
-	//			}
-
-	//			// Preloader
-	//			if (p.o.preloaderContent) {
-
-	//				$preloader = $(p.o.preloaderContent)
-	//					.appendTo($('body'));
-
-	//			}
-
-	//		}
-
-	//		// Get the popupType
-	//		popupType = getValue([popupType, p.o.type]);
-
-	//		// If it's at auto, guess a real type
-	//		popupType = (popupType === 'auto')
-	//			? guessType(content)
-	//			: popupType;
-
-	//		// Cache the type to use globally
-	//		type = popupType;
-
-	//		// Do we have a width set?
-	//		p.width = (p.o.width)
-	//			? p.o.width
-	//			: null;
-
-	//		// Do we have a height set?
-	//		p.height = (p.o.height)
-	//			? p.o.height
-	//			: null;
-
-	//		// If it's not inline, jQuery or a function
-	//		// it might have params, and they are top priority
-	//		if ($.inArray(popupType, ['inline', 'jQuery', 'function']) === -1) {
-
-	//			var paramType = getParameterByName(p.o.typeParam, content),
-	//				paramWidth = getParameterByName(p.o.widthParam, content),
-	//				paramHeight = getParameterByName(p.o.heightParam, content);
-
-	//			// Do we have an overriding paramter?
-	//			popupType = (paramType !== null)
-	//				? paramType
-	//				: popupType;
-
-	//			// Do we have an overriding width?
-	//			p.width = (paramWidth !== null)
-	//				? paramWidth
-	//				: p.width;
-
-	//			// Do we have an overriding height?
-	//			p.height = (paramHeight !== null)
-	//				? paramHeight
-	//				: p.height;
-	//		}
-
-	//		// Callback
-	//		p.o.beforeOpen.call(p, popupType);
-
-	//		// Show the content based
-	//		if (p.o.types[popupType]) {
-
-	//			p.o.types[popupType].call(p, content, showContent);
-
-	//		} else {
-
-	//			p.o.types.ajax.call(p, content, showContent);
-
-	//		}
-
-	//	};
-
-	//	/**
-	//	 * Return the correct value to be used
-	//	 *
-	//	 * @param  {array} items
-	//	 * @return {mixed}
-	//	 */
-	//	function getValue(items) {
-
-	//		var finalValue;
-
-	//		$.each(items, function (i, value) {
-
-	//			if (value) {
-	//				finalValue = value;
-	//				return false;
-	//			}
-
-	//		});
-
-	//		return finalValue;
-
-	//	}
-
-	//	/**
-	//	 * Guess the type of content to show
-	//	 *
-	//	 * @param  {string|Object|function} content
-	//	 * @return {string}
-	//	 */
-	//	function guessType(content) {
-
-	//		if (typeof content === 'function') {
-
-	//			return 'function';
-
-	//		} else if (content instanceof $) {
-
-	//			return 'jQuery';
-
-	//		} else if (content.substr(0, 1) === '#' || content.substr(0, 1) === '.') {
-
-	//			return 'inline';
-
-	//		} else if ($.inArray(content.substr(content.length - 3), imageTypes) !== -1) {
-
-	//			return 'image';
-
-	//		} else if (content.substr(0, 4) === 'http') {
-
-	//			return 'external';
-
-	//		} else {
-
-	//			return 'ajax';
-
-	//		}
-
-	//	}
-
-	//	/**
-	//	 * Shows the content
-	//	 *
-	//	 * @param  {string} content
-	//	 * @return {void}
-	//	 */
-	//	function showContent(content) {
-
-	//		// Do we have a preloader?
-	//		if ($preloader) {
-
-	//			// If so, hide!
-	//			$preloader.fadeOut('fast', function () {
-
-	//				$(this).remove();
-
-	//			});
-
-	//		}
-
-	//		// Presume we're replacing
-	//		var replacing = true;
-
-	//		// If we're not open already
-	//		if ($pCont === undefined) {
-
-	//			// We're not replacing!
-	//			replacing = false;
-
-	//			// Create the container
-	//			$pCont = $('<div class="' + p.o.containerClass + '">');
-
-	//			// Add in the popup markup
-	//			$p = $(p.o.markup)
-	//				.appendTo($pCont);
-
-	//			// Add in the close button
-	//			$close = $(p.o.closeContent)
-	//				.one('click', function () {
-	//					p.close();
-	//				})
-	//				.appendTo($pCont);
-
-	//			//$close = $(p.o.closeFooter)
-	//			//	.one('click', function () {
-	//			//		p.close();
-	//			//	})
-	//			//	.appendTo($pCont);
-
-
-
-	//			// Bind the resize event
-	//			//$(window).resize(p.center);
-
-	//			// Append the container to the body
-	//			// and set the opacity
-	//			$pCont
-	//				.appendTo($(p.o.parentSelector))
-	//				.css('opacity', 0);
-
-	//			//$pCont.one('click', function () {
-	//			//	p.close();
-	//			//})
-
-	//		}
-
-	//		// Get the actual content element
-	//		var $pContent = $('.' + p.o.contentClass, $pCont);
-
-	//		// Do we have a set width/height?
-	//		if (p.width) {
-
-	//			$pContent.css('width', p.width, 10);
-
-	//		} else {
-
-	//			$pContent.css('width', '');
-	//		}
-
-	//		if (p.height) {
-
-	//			$pContent.css('height', p.height, 10);
-
-	//		} else {
-
-	//			$pContent.css('height', '');
-
-	//		}
-
-	//		// Put the content in place!
-	//		if ($p.hasClass(p.o.contentClass)) {
-
-	//			$p
-	//				.html(content);
-
-	//		} else {
-
-	//			$p
-	//				.find('.' + p.o.contentClass)
-	//				.html(content);
-
-	//		}
-
-	//		// Callbacks!
-	//		if (!replacing) {
-
-	//			p.o.show.call(p, $pCont, $back);
-
-	//		} else {
-
-	//			p.o.replaced.call(p, $pCont, $back);
-
-	//		}
-
-	//	}
-
-	//	/**
-	//	 * Close the popup
-	//	 *
-	//	 * @return {Object}
-	//	 */
-	//	p.close = function () {
-
-	//		p.o.beforeClose.call(p);
-
-	//		// If we got some inline content, cache it
-	//		// so we can put it back
-	//		if (
-	//			type === 'inline' &&
-	//			p.o.keepInlineChanges
-	//		) {
-	//			cachedContent = $('.' + p.o.contentClass).html();
-	//		}
-
-	//		if ($back !== undefined) {
-
-	//			// Fade out the back
-	//			$back.animate({ opacity: 0 }, p.o.speed, function () {
-
-	//				// Clean up after ourselves
-	//				p.cleanUp();
-
-	//			});
-
-	//		}
-
-	//		// Call the hide callback
-	//		p.o.hide.call(p, $pCont, $back);
-
-	//		return p;
-
-	//	};
-
-	//	/**
-	//	 * Clean up the popup
-	//	 *
-	//	 * @return {Object}
-	//	 */
-	//	p.cleanUp = function () {
-
-	//		$back
-	//			.add($pCont)
-	//			.remove();
-
-	//		$pCont = $back = undefined;
-
-	//		// Unbind the resize event
-	//		$(window).unbind('resize', p.center);
-
-	//		// Did we hide the flash?
-	//		if (p.o.hideFlash) {
-
-	//			$('object, embed').css('visibility', 'visible');
-
-	//		}
-
-	//		// Remove active class if we can
-	//		if (p.ele && p.o.activeClass) {
-
-	//			$(p.ele).removeClass(p.o.activeClass);
-
-	//		}
-
-	//		var $popupPlaceholder = $('.' + p.o.popupPlaceholderClass);
-
-	//		// If we got inline content
-	//		// put it back
-	//		if (
-	//			type == 'inline' &&
-	//			$popupPlaceholder.length
-	//		) {
-	//			$popupPlaceholder
-	//				.html(cachedContent)
-	//				.removeClass(p.o.popupPlaceholderClass);
-	//		}
-
-	//		type = null;
-
-	//		// Call the afterClose callback
-	//		p.o.afterClose.call(p);
-
-	//		return p;
-
-	//	};
-
-	//	/**
-	//	 * Centers the popup
-	//	 *
-	//	 * @return {Object}
-	//	 */
-	//	p.center = function () {
-
-	//		$pCont.css(p.getCenter());
-
-	//		// Only need force for IE6
-	//		$back.css({
-	//			height: document.documentElement.scrollHeight
-	//		});
-
-	//		return p;
-
-	//	};
-
-	//	/**
-	//	 * Get the center co-ordinates
-	//	 *
-	//	 * Returns the top/left co-ordinates to
-	//	 * put the popup in the center
-	//	 *
-	//	 * @return {Object} top/left keys
-	//	 */
-	//	p.getCenter = function () {
-
-	//		var pW = $pCont.children().outerWidth(true),
-	//			pH = $pCont.children().outerHeight(true),
-	//			wW = document.documentElement.clientWidth,
-	//			wH = (document.documentElement.scrollTop || $('body').scrollTop()) + 65;
-
-	//		//var aaap = $('body')
-
-	//		//alert(aaap.scrollTop());
-
-	//		return {
-	//			top: wH,
-	//			left: wW * 0.5 - pW * 0.5
-	//		};
-
-	//	};
-
-	//	/**
-	//	 * Get parameters by name
-	//	 * @param  {string} name
-	//	 * @return {null|string} null if not found
-	//	 */
-	//	function getParameterByName(name, url) {
-
-	//		var match = new RegExp('[?&]' + name + '=([^&]*)')
-	//			.exec(url);
-
-	//		return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-
-	//	}
-
-	//};
-
+	$.Inline = function (settings) {
+		var inline = this;
+		var defaults = {
+			preview: $('<li class="inline-preview"></li>')
+		};
+
+		inline.settings = $.extend(true, {}, defaults, settings);
+
+		this.open = function (sender) {
+			var $sender = $(sender);
+			var top = $sender.offset().top;
+			var $root = $sender.closest(inline.settings.selector);
+			var counter = -1;
+			var found = false;
+			inline.settings.preview.remove();
+			$root.find(inline.settings.children).each(function () {
+				if (top < $(this).offset().top) {
+					found = true;
+					return false;
+				}
+				counter++;
+			});
+
+			if (found) {
+				$root.children().eq(counter).after(inline.settings.preview);
+			}
+			else {
+				$root.append(inline.settings.preview);
+			}
+
+			$.get($sender.data('href'), function (r) {
+				inline.settings.preview.empty();
+				$sender.parents('[style*="height"]').css('height', 'auto');
+				inline.settings.preview.css('display', 'none');
+				inline.settings.preview.append($(r).children());
+				//console.log(inline.settings.preview.innerHeight());
+				inline.settings.preview.fadeIn(400, function () {
+					resizeInitialSlide('.slide');
+				});
+			});
+		}
+	};
 }(jQuery, window));
