@@ -380,7 +380,7 @@ div.navigation a {
 			overflow: auto;
 		}
 
-		.grid li a {
+		.grid li > a {
 			text-decoration: none;
 			/*overflow:auto;*/
 			display: block;
@@ -389,11 +389,11 @@ div.navigation a {
 			transition: all 0.2s linear 0s;
 		}
 
-			.grid li a:hover {
+			.grid li > a:hover {
 				box-shadow: 0 3px 20px rgba(0, 0, 0, 0.3);
 			}
 
-			.grid li a img {
+			.grid li > a img {
 				width: 250px;
 				height: 250px;
 			}
@@ -690,9 +690,9 @@ h2.p-name {
 		max-width: initial;
 	}
 
-/*.inline-preview .header-details {
-		margin-top: 70px;
-	}*/
+.inline-preview .header-details a:hover {
+		
+	}
 
 .copyright {
 	text-align: center;

@@ -143,7 +143,7 @@ function navigateToSection(hash, animate) {
 			parts[i] += ' ' + settings.children;
 		}
 
-		$(document).on('click.inline', parts.join(','), function (e) {
+		$(parts.join(',')).click(function (e) {
 			e.preventDefault();
 			inline.open(this);
 		});
