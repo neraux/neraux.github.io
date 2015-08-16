@@ -27,61 +27,69 @@ div.icons {
 		width: 40px;
 		height: 40px;
 		margin: 0px 3px;
-		background-size: 40px 40px;
+		background-size: 80px auto;
 		background-repeat: no-repeat;
 		text-decoration: none;
 		text-align: center;
 		font-size: 10px;
+		background-image: url('../images/icons/icons.png');
 	}
 
 	div.icons .sketch {
-		background-image: url('../images/icons/sketch3-bw.gif');
+		background-position: -40px -40px;
 	}
 
 		div.icons .sketch:hover {
-			background-image: url('../images/icons/sketch3.gif');
+			background-position: 0px -40px;
 		}
 
-	/*div.icons .sketch::after {
-			content: "Sketch3";
-		}*/
-
 	div.icons .gliffy {
-		background-image: url('../images/icons/gliffy-bw.gif');
+		background-position: -40px -80px;
 	}
 
 		div.icons .gliffy:hover {
-			background-image: url('../images/icons/gliffy.gif');
+			background-position: 0px -80px;
 		}
 
-	/*div.icons .gliffy::after {
-			content: "Gliffy";
-		}*/
-
-
 	div.icons .invision {
-		background-image: url('../images/icons/invision-bw.gif');
+		background-position: -40px 0px;
 	}
 
 		div.icons .invision:hover {
-			background-image: url('../images/icons/invision.gif');
+			background-position: 0px 0px;
 		}
 
-	/*div.icons .invision::after {
-			content: "InVision";
-		}*/
-
 	div.icons .axure {
-		background-image: url('../images/icons/axure-bw.gif');
+		background-position: -40px -120px;
 	}
 
 		div.icons .axure:hover {
-			background-image: url('../images/icons/axure.gif');
+			background-position: 0px -120px;
 		}
 
-/*div.icons .axure::after {
-			content: "Axure";
-		}*/
+	div.icons .photoshop {
+		background-position: -40px -160px;
+	}
+
+		div.icons .photoshop:hover {
+			background-position: 0px -160px;
+		}
+
+	div.icons .illustrator {
+		background-position: -40px -200px;
+	}
+
+		div.icons .illustrator:hover {
+			background-position: 0px -200px;
+		}
+
+	div.icons .indesign {
+		background-position: -40px -240px;
+	}
+
+		div.icons .indesign:hover {
+			background-position: 0px -240px;
+		}
 
 .status .success, .status .fail {
 	display: block;
@@ -144,12 +152,24 @@ div.icons {
 		font-size: 24px;
 	}
 
-p.about-me {
+.about-me {
 	font-size: 20px;
-	line-height: 35px;
+	line-height: 30px;
 	padding: 0 10px;
 	width: 50%;
 }
+
+	.about-me .icons {
+		margin:0px;
+	}
+
+	.about-me .section-name {
+		background-color:none;
+	}
+
+	.about-me .popup-section {
+		text-align:left;
+	}
 
 .logo {
 	height: 35px;
@@ -337,6 +357,7 @@ div.navigation a {
 	background-position: 100% 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
+	background-size: auto 100%;
 	/*background-size: contain !important;*/
 }
 
@@ -690,8 +711,7 @@ h2.p-name {
 		max-width: initial;
 	}
 
-.inline-preview .header-details a:hover {
-		
+	.inline-preview .header-details a:hover {
 	}
 
 .copyright {
@@ -703,7 +723,7 @@ h2.p-name {
 
 .social {
 	text-align: center;
-	padding-bottom:20px;
+	padding-bottom: 20px;
 }
 
 	.social p {
@@ -844,7 +864,7 @@ hr {
 	}
 
 
-	p.about-me {
+	.about-me {
 		width: initial;
 	}
 }
@@ -898,20 +918,20 @@ hr {
 	}
 
 	.section {
-		padding-bottom:0px;
-		padding-top:15px;
+		padding-bottom: 0px;
+		padding-top: 15px;
 	}
 
-	.section h1 {
-		font-size: 26px;
-		margin-bottom:10px;
-		line-height:23px;
-	}
+		.section h1 {
+			font-size: 26px;
+			margin-bottom: 10px;
+			line-height: 23px;
+		}
 
-	.section h3 {
-		font-size: 17px;
-		line-height: 20px;
-	}
+		.section h3 {
+			font-size: 17px;
+			line-height: 20px;
+		}
 
 	.double img {
 		width: 48%;
