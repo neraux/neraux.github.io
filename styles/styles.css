@@ -160,15 +160,15 @@ div.icons {
 }
 
 	.about-me .icons {
-		margin:0px;
+		margin: 0px;
 	}
 
 	.about-me .section-name {
-		background-color:none;
+		background-color: none;
 	}
 
 	.about-me .popup-section {
-		text-align:left;
+		text-align: left;
 	}
 
 .logo {
@@ -762,11 +762,12 @@ h2.p-name {
 }
 
 .landscape img {
-	padding-bottom: 25px;
 	width: 95%;
 	max-width: 500px;
 	display: block;
 	margin: auto;
+	/*border: 1px solid #d9d9d9;*/
+	margin-bottom: 25px;
 }
 
 /*.popup_close_footer {
