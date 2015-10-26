@@ -25,6 +25,10 @@ function submitMessage() {
 		url += '&' + this.getAttribute('data-field') + '=' + encodeURI(this.value);
 	});
 
+	$.ajaxSetup({
+		timeout : 20000
+	});
+
 	$.getScript(url, function () {
 		var response = toolboxResults();
 		submitMessageCallback(response.success);
