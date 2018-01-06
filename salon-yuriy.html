@@ -1,0 +1,140 @@
+﻿<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable = no" />
+	<title>www.TravisRaab.com website redesign</title>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+<body>
+	<div class="menu">
+		<div class="container clearfix">
+			<div class="fleft">
+				<a href="/" id="homeLink">
+					<img class="logo" src="images/logo.svg" />
+				</a>
+			</div>
+			<div class="fright">
+				<div id="menu-container">
+					<div class="navigation" id="menu">
+						<a href="/#/ux">UX</a>
+						<a href="/#/logo">Logo</a>
+						<a href="/#/art">Art</a>
+						<a href="/#/about">About</a>
+						<a href="/#/contact" class="last">Contact</a>
+					</div>
+				</div>
+				<div class="navigation mobile">
+					<a href="#">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="detail-container">
+		<div class="header">
+			<div class="header-image">
+				<img src="images/p7/home-header.jpg" />
+			</div>
+			<div class="header-details">
+				<h3>salonyuriy.com Website Redesign</h3>
+				<p>
+                    As a premier hair salon in Pasadena, Salon Yuriy provides luxury services among the best in the industry. Their professional staff is passionate and creative to give you the best look possible.
+					<a href="http://salonyuriy.com" target="_blank">salonyuriy.com</a>
+				</p>
+				<h3>Objectives</h3>
+				<p>
+					The goal of this project was total redesign with focus to improve user experience, simplify layout, redefine navigation, and make it mobile friendly.
+					<hr />
+					<h3>Tools</h3>
+					<div class="icons">
+						<span class="sketch" title="Sketch3"></span>
+						<span class="illustrator" title="Illustrator"></span>
+						<span class="photoshop" title="Photoshop"></span>
+					</div>
+			</div>
+		</div>
+		<div class="popup-section">
+			<div class="section-name">Screens - Desktop</div>
+			<hr />
+		</div>
+		<div class="clearfix center">
+			<div class="section-details">
+				<!--<p>As a user, I want to be able to search for a product, customize it and place a bulk order.</p>-->
+			</div>
+			<div class="double bordered">
+				<img src="images/p7/w-home.jpg" />
+				<img src="images/p7/w-cut-style.jpg" />
+				<img src="images/p7/w-team.jpg" />
+                <img src="images/p7/w-products.jpg" />
+                <img src="images/p7/w-specials.jpg" />
+                <img src="images/p7/w-appointment.jpg" />
+				<img src="images/p7/w-contact.jpg" />				
+			</div>
+		</div>
+
+		<div class="popup-section">
+			<div class="section-name">Screens - Mobile</div>
+			<hr />
+		</div>
+		<div class="clearfix center">
+			<div class="section-details">
+			</div>
+			<div class="double bordered">
+				<img src="images/p7/m-home.jpg" />
+                <img src="images/p7/m-services.jpg" />
+                <img src="images/p7/m-team.jpg" />
+                <img src="images/p7/m-products.jpg" />
+                <img src="images/p7/m-specials.jpg" />
+                <img src="images/p7/m-appointment.jpg" />
+                <img src="images/p7/m-contact.jpg" />				
+			</div>
+		</div>
+
+		<div class="popup-section">
+			<div class="section-name">Other Work</div>
+			<hr />
+		</div>
+		<div class="clearfix center">
+			<ul class="grid">
+				<li>
+					<a href="moca.html" id="moca">
+						<img src="images/thumbs/p2.jpg" />
+						<p>MOCA redesign</p>
+					</a>
+				</li>
+				<li>
+					<a href="linkedin.html" id="linkedin">
+						<img src="images/thumbs/p3.jpg" />
+						<p>New feature for LinkedIn</p>
+					</a>
+				</li>
+				<li>
+					<a href="broadcity.html" id="broad">
+						<img src="images/thumbs/p1.jpg" />
+						<p>Mobile App for Broad City TV Show</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="copyright">&copy; 2015 Nera Mamikonyan</div>
+	<script src="scripts/jquery-2.1.4.min.js"></script>
+	<script src="scripts/common.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.menu .mobile a').mobileMenu({
+				source: '#menu',
+			});
+		});
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-65320112-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
+
+</body>
+</html>   
